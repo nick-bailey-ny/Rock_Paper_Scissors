@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset = "UTF-8">
+</head>
+    <body>
+        <script>
+        function userPlay() {
+                let playerSelection = prompt("Type rock paper or scissors:"); 
+                 playerSelection = playerSelection.toLowerCase(); 
+                    if (playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors') { 
+                    return playerSelection;
+                    } else { 
+                    console.log("Error! Please pick rock, paper, or scissors.") 
+                    } 
+        }
+        function computerPlay() {
+                let choices = ['rock', 'paper', 'scissors'];
+                let computerSelection = choices[Math.floor(Math.random() * choices.length)];
+                return computerSelection;
+            }
+        
+            function win() {
+                userScore++;
+                console.log("User: " + userScore);
+                console.log("You win.");
+            }
+
+            function lose() {
+                compScore++;
+                console.log("Comp: " + compScore);
+                console.log("Computer wins.")
+            }
+
+            function draw() {
+                console.log("Draw.")
+            }
+
+            function playRound(playerSelection, computerSelection) {
+                switch (playerSelection + computerSelection) {
+                    case "rockscissors":
+                    case "paperrock":
+                    case "scissorspaper": 
+                        win();
+                        break;
+                    case "scissorsrock": 
+                    case "rockpaper":
+                    case "paperscissors": 
+                        lose();
+                        break;
+                    case "rockrock": 
+                    case "paperpaper":
+                    case "scissorsscissors": 
+                        draw();
+                        break;
+                }
+            }
+
+            function game() {
+                for (playCount; playCount < 5; playCount++) {
+                    let playerSelection = userPlay()
+                    let computerSelection = computerPlay()
+                    console.log(computerSelection)
+                    playRound(playerSelection, computerSelection)
+                }
+            }
+            let playCount = 0
+            let userScore = 0
+            let compScore = 0
+            
+            console.log(game())
+            console.log("Play count: " + playCount)
+            console.log("User: " + userScore)
+            console.log("Comp: " + compScore)
+
+        </script>
+    </body>
+</html>
