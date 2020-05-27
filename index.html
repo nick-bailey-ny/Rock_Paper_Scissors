@@ -37,22 +37,32 @@
             }
 
             function playRound(playerSelection, computerSelection) {
-                switch (playerSelection + computerSelection) {
-                    case "rockscissors":
-                    case "paperrock":
-                    case "scissorspaper": 
-                        win();
-                        break;
-                    case "scissorsrock": 
-                    case "rockpaper":
-                    case "paperscissors": 
-                        lose();
-                        break;
-                    case "rockrock": 
-                    case "paperpaper":
-                    case "scissorsscissors": 
-                        draw();
-                        break;
+                if (playerSelection === computerSelection) {
+                    draw()
+                }
+                if (playerSelection === 'rock') {
+                    if (computerSelection === 'scissors') {
+                        win()
+                    }
+                    else if (computerSelection === 'paper') {
+                        lose()
+                    }
+                }
+                if (playerSelection === 'paper') {
+                    if (computerSelection === 'rock') {
+                        win()
+                    }
+                    else if (computerSelection === 'scissors') {
+                        lose()
+                    }
+                }
+                if (playerSelection === 'scissors') {
+                    if (computerSelection === 'paper') {
+                        win()
+                    }
+                    else if (computerSelection === 'rock') {
+                        lose()
+                    }
                 }
             }
 
